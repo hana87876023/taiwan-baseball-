@@ -1,12 +1,90 @@
 'use client';
 
+import { useState, useEffect } from 'react';
+
 export default function HeroBanner() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  
+  const slides = [
+    {
+      image: '/images/slide-1.jpg',
+      title: '迫力のスライディング',
+      description: '熱戦が繰り広げられる台湾プロ野球の瞬間'
+    },
+    {
+      image: '/images/slide-2.jpg',
+      title: '伝統と情熱',
+      description: '台湾野球の歴史を感じる一球一球'
+    },
+    {
+      image: '/images/slide-3.jpg',
+      title: '満員のスタジアム',
+      description: '熱狂的なファンと共に観戦する興奮'
+    }
+  ];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, [slides.length]);
+
   return (
     <section className="relative h-[70vh] bg-gradient-to-r from-blue-900 via-blue-800 to-green-800 text-white overflow-hidden">
-      <div className="absolute inset-0 bg-black/30"></div>
+      {/* スライダー背景 */}
+      {slides.map((slide, index) => (
+        <div
+          key={index}
+          className={`absolute inset-0 transition-opacity duration-1000 ${
+            index === currentSlide ? 'opacity-100' : 'opacity-0'
+          }`}
+        >
+          <img
+            src={slide.image}
+            alt={slide.title}
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent"></div>
+        </div>
+      ))}
+      
+      {/* スライドインジケーター */}
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex gap-2 z-20">
+        {slides.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => setCurrentSlide(index)}
+            className={`w-3 h-3 rounded-full transition-all ${
+              index === currentSlide 
+                ? 'bg-white w-8' 
+                : 'bg-white/50 hover:bg-white/75'
+            }`}
+          />
+        ))}
+      </div>
       
       <div className="relative z-10 container mx-auto px-4 h-full flex items-center">
         <div className="max-w-3xl">
+          {/* スライドごとのタイトル */}
+          <div className="mb-4">
+            {slides.map((slide, index) => (
+              <div
+                key={index}
+                className={`transition-all duration-500 ${
+                  index === currentSlide ? 'block' : 'hidden'
+                }`}
+              >
+                <h3 className="text-2xl md:text-3xl font-bold text-yellow-400 mb-2">
+                  {slide.title}
+                </h3>
+                <p className="text-lg opacity-90">
+                  {slide.description}
+                </p>
+              </div>
+            ))}
+          </div>
+          
           <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent">
             台湾プロ野球
           </h1>
@@ -43,16 +121,6 @@ export default function HeroBanner() {
               スケジュール
             </button>
           </div>
-        </div>
-      </div>
-      
-      <div className="absolute bottom-0 right-0 w-1/3 h-full opacity-20">
-        <div className="w-full h-full bg-gradient-to-l from-white/20 to-transparent" 
-             style={{
-               backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='none' stroke='white' stroke-width='2'/%3E%3C/svg%3E")`,
-               backgroundSize: '200px 200px',
-               backgroundPosition: 'center'
-             }}>
         </div>
       </div>
     </section>
