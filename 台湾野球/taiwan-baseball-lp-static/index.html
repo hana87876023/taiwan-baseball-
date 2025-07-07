@@ -216,43 +216,47 @@
             </div>
 
             <div class="stats-grid">
-                <div class="stat-card home-runs">
+                <div class="stat-card home-runs" style="position: relative; overflow: hidden;">
                     <div class="stat-header">
                         <span class="stat-icon">⚾</span>
                         <div class="stat-value">28</div>
                     </div>
                     <h3 class="stat-title">本塁打王</h3>
                     <div class="stat-player">高國麟</div>
+                    <img src="https://images.unsplash.com/photo-1481007553706-bde1ba8e91fd?w=300&q=80" alt="本塁打" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.15; z-index: -1; border-radius: 15px;">
                     <div class="stat-team">統一7-ELEVEn獅</div>
                 </div>
 
-                <div class="stat-card batting-avg">
+                <div class="stat-card batting-avg" style="position: relative; overflow: hidden;">
                     <div class="stat-header">
                         <span class="stat-icon">🏏</span>
                         <div class="stat-value">.342</div>
                     </div>
                     <h3 class="stat-title">首位打者</h3>
                     <div class="stat-player">林安可</div>
+                    <img src="https://images.unsplash.com/photo-1577223625816-7546f13df25d?w=300&q=80" alt="バッティング" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.15; z-index: -1; border-radius: 15px;">
                     <div class="stat-team">統一7-ELEVEn獅</div>
                 </div>
 
-                <div class="stat-card era">
+                <div class="stat-card era" style="position: relative; overflow: hidden;">
                     <div class="stat-header">
                         <span class="stat-icon">🥎</span>
                         <div class="stat-value">2.15</div>
                     </div>
                     <h3 class="stat-title">防御率1位</h3>
                     <div class="stat-player">王維中</div>
+                    <img src="https://images.unsplash.com/photo-1504218727796-db522606b16f?w=300&q=80" alt="ピッチング" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.15; z-index: -1; border-radius: 15px;">
                     <div class="stat-team">楽天モンキーズ</div>
                 </div>
 
-                <div class="stat-card rbi">
+                <div class="stat-card rbi" style="position: relative; overflow: hidden;">
                     <div class="stat-header">
                         <span class="stat-icon">💪</span>
                         <div class="stat-value">89</div>
                     </div>
                     <h3 class="stat-title">打点王</h3>
                     <div class="stat-player">林智勝</div>
+                    <img src="https://images.unsplash.com/photo-1593125376501-33e56a534489?w=300&q=80" alt="強打者" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.15; z-index: -1; border-radius: 15px;">
                     <div class="stat-team">中信兄弟</div>
                 </div>
             </div>
@@ -342,16 +346,18 @@
             <div class="media-content">
                 <div id="live-media" class="media-panel active">
                     <div class="live-streams">
-                        <div class="stream-item">
-                            <div class="stream-info">
-                                <h4 class="stream-title">統一7-ELEVEn獅 vs 楽天モンキーズ</h4>
-                                <div class="stream-meta">
-                                    <span class="stream-status live">ライブ中</span>
-                                    <span class="viewer-count">👥 12,480人視聴中</span>
-                                    <span class="platform">📺 CPBL TV</span>
+                        <div class="stream-item" style="background-image: url('https://images.unsplash.com/photo-1593201464350-96ec57065aa2?w=800&q=80'); background-size: cover; background-position: center; position: relative;">
+                            <div style="background: rgba(0,0,0,0.7); padding: 1.5rem; border-radius: 15px;">
+                                <div class="stream-info">
+                                    <h4 class="stream-title">統一7-ELEVEn獅 vs 楽天モンキーズ</h4>
+                                    <div class="stream-meta">
+                                        <span class="stream-status live">ライブ中</span>
+                                        <span class="viewer-count">👥 12,480人視聴中</span>
+                                        <span class="platform">📺 CPBL TV</span>
+                                    </div>
                                 </div>
+                                <button class="btn btn-live">視聴する</button>
                             </div>
-                            <button class="btn btn-live">視聴する</button>
                         </div>
                     </div>
                 </div>
@@ -396,17 +402,21 @@
                 <p class="cta-description">ライブ観戦からアプリダウンロードまで、CPBLを楽しむすべてがここに</p>
 
                 <div class="cta-cards">
-                    <div class="cta-card">
-                        <div class="cta-icon">🎟️</div>
-                        <h3 class="cta-card-title">チケット購入</h3>
-                        <p class="cta-card-text">お気に入りのチームを球場で応援しよう</p>
-                        <button class="btn btn-cta-primary">チケットを購入</button>
+                    <div class="cta-card" style="background-image: url('https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&q=80'); background-size: cover; background-position: center; position: relative;">
+                        <div style="background: rgba(0,0,0,0.85); padding: 2rem; border-radius: 15px; height: 100%;">
+                            <div class="cta-icon">🎟️</div>
+                            <h3 class="cta-card-title">チケット購入</h3>
+                            <p class="cta-card-text">お気に入りのチームを球場で応援しよう</p>
+                            <button class="btn btn-cta-primary">チケットを購入</button>
+                        </div>
                     </div>
-                    <div class="cta-card">
-                        <div class="cta-icon">📱</div>
-                        <h3 class="cta-card-title">公式アプリ</h3>
-                        <p class="cta-card-text">ライブスコア、動画、統計をアプリで</p>
-                        <button class="btn btn-cta-secondary">アプリダウンロード</button>
+                    <div class="cta-card" style="background-image: url('https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&q=80'); background-size: cover; background-position: center; position: relative;">
+                        <div style="background: rgba(0,0,0,0.85); padding: 2rem; border-radius: 15px; height: 100%;">
+                            <div class="cta-icon">📱</div>
+                            <h3 class="cta-card-title">公式アプリ</h3>
+                            <p class="cta-card-text">ライブスコア、動画、統計をアプリで</p>
+                            <button class="btn btn-cta-secondary">アプリダウンロード</button>
+                        </div>
                     </div>
                 </div>
 
