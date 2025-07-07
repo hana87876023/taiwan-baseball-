@@ -1075,6 +1075,71 @@ body {
     color: white;
 }
 
+/* 絵文字置換画像のスタイル */
+.emoji-replacement {
+    display: inline-block;
+    vertical-align: middle;
+    transition: transform 0.2s ease;
+}
+
+.emoji-replacement:hover {
+    transform: scale(1.1);
+}
+
+/* 統計アイコンの画像スタイル */
+.stat-icon .emoji-replacement {
+    width: 2.5rem !important;
+    height: 2.5rem !important;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* CTAアイコンの画像スタイル */
+.cta-icon .emoji-replacement {
+    width: 3rem !important;
+    height: 3rem !important;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* メディアタブの画像スタイル */
+.media-tab-btn .emoji-replacement {
+    width: 1.3rem !important;
+    height: 1.3rem !important;
+    margin-right: 0.5rem;
+}
+
+/* ソーシャルアイコンの画像スタイル */
+.social-icon .emoji-replacement,
+.social-link .emoji-replacement {
+    width: 1.8rem !important;
+    height: 1.8rem !important;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.social-icon:hover .emoji-replacement,
+.social-link:hover .emoji-replacement {
+    transform: scale(1.2);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* ハイライトメタ情報の画像スタイル */
+.highlight-meta .emoji-replacement {
+    width: 1rem !important;
+    height: 1rem !important;
+    margin-right: 0.3rem;
+}
+
+/* ストリームメタ情報の画像スタイル */
+.stream-meta .emoji-replacement {
+    width: 1.1rem !important;
+    height: 1.1rem !important;
+    margin-right: 0.3rem;
+}
+
 /* レスポンシブ */
 @media (max-width: 768px) {
     .hero-title {

@@ -98,6 +98,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initTabs();
     initMediaTabs();
     initTickerAnimation();
+    replaceEmojisWithImages(); // 絵文字を画像に置換
 });
 
 // チームグリッドの初期化
@@ -248,3 +249,125 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 });
+
+// 絵文字を画像に置換する関数
+function replaceEmojisWithImages() {
+    // 絵文字と画像URLのマッピング
+    const emojiToImage = {
+        // 統計アイコン
+        '⚾': {
+            url: 'https://images.unsplash.com/photo-1508344928928-7165b67de128?w=100&q=80',
+            alt: '野球ボール'
+        },
+        '🏏': {
+            url: 'https://images.unsplash.com/photo-1624526267942-ab0ff8a3e972?w=100&q=80',
+            alt: 'バット'
+        },
+        '🥎': {
+            url: 'https://images.unsplash.com/photo-1589925258375-50ab8fb1e6f5?w=100&q=80',
+            alt: 'ソフトボール'
+        },
+        '💪': {
+            url: 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?w=100&q=80',
+            alt: '強打者'
+        },
+        // メディアアイコン
+        '📺': {
+            url: 'https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=100&q=80',
+            alt: 'ライブ配信'
+        },
+        '🎬': {
+            url: 'https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=100&q=80',
+            alt: 'ハイライト'
+        },
+        '📸': {
+            url: 'https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=100&q=80',
+            alt: 'カメラ'
+        },
+        // ソーシャルメディア
+        '📘': {
+            url: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=100&q=80',
+            alt: 'Facebook'
+        },
+        '🐦': {
+            url: 'https://images.unsplash.com/photo-1611605698335-8b1569810432?w=100&q=80',
+            alt: 'Twitter'
+        },
+        // その他のアイコン
+        '🎟️': {
+            url: 'https://images.unsplash.com/photo-1548199569-3e1c646665cb?w=100&q=80',
+            alt: 'チケット'
+        },
+        '📱': {
+            url: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=100&q=80',
+            alt: 'スマートフォン'
+        },
+        '👥': {
+            url: 'https://images.unsplash.com/photo-1517457373958-b7bdd4587205?w=100&q=80',
+            alt: '視聴者'
+        },
+        '⏱️': {
+            url: 'https://images.unsplash.com/photo-1563861826100-9cb868fdbe1c?w=100&q=80',
+            alt: '時間'
+        },
+        '👁️': {
+            url: 'https://images.unsplash.com/photo-1549834125-82d3c48159a3?w=100&q=80',
+            alt: '視聴回数'
+        }
+    };
+
+    // ノードを走査して絵文字を置換
+    function replaceInNode(node) {
+        if (node.nodeType === Node.TEXT_NODE) {
+            let text = node.textContent;
+            let hasEmoji = false;
+            
+            // 絵文字が含まれているかチェック
+            for (const emoji in emojiToImage) {
+                if (text.includes(emoji)) {
+                    hasEmoji = true;
+                    break;
+                }
+            }
+            
+            if (hasEmoji) {
+                const span = document.createElement('span');
+                let html = text;
+                
+                // 各絵文字を画像タグに置換
+                for (const [emoji, data] of Object.entries(emojiToImage)) {
+                    const imgTag = `<img src="${data.url}" alt="${data.alt}" class="emoji-replacement" style="width: 1.2em; height: 1.2em; vertical-align: middle; margin: 0 2px;">`;
+                    html = html.replace(new RegExp(emoji, 'g'), imgTag);
+                }
+                
+                span.innerHTML = html;
+                node.parentNode.replaceChild(span, node);
+            }
+        } else if (node.nodeType === Node.ELEMENT_NODE) {
+            // script, style, noframe タグは無視
+            if (!['SCRIPT', 'STYLE', 'NOSCRIPT'].includes(node.nodeName)) {
+                // 子ノードを配列にコピー（ライブNodeListを避けるため）
+                const children = Array.from(node.childNodes);
+                children.forEach(child => replaceInNode(child));
+            }
+        }
+    }
+
+    // body全体を走査
+    replaceInNode(document.body);
+    
+    // 特定のクラスに対して追加のスタイリング
+    document.querySelectorAll('.stat-icon img, .cta-icon img').forEach(img => {
+        img.style.width = '2.5rem';
+        img.style.height = '2.5rem';
+        img.style.objectFit = 'cover';
+        img.style.borderRadius = '50%';
+    });
+    
+    // ソーシャルアイコンのスタイリング
+    document.querySelectorAll('.social-icon img, .social-link img').forEach(img => {
+        img.style.width = '1.5rem';
+        img.style.height = '1.5rem';
+        img.style.borderRadius = '4px';
+    });
+}
