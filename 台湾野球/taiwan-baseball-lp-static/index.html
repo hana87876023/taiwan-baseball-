@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>台湾プロ野球 CPBL - Chinese Professional Baseball League</title>
+    <meta name="description" content="台湾最高峰のプロ野球リーグCPBLの公式ランディングページ。ライブスコア、試合情報、チーム紹介をリアルタイムでお届け">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- ヒーローセクション -->
+    <section id="hero" class="hero">
+        <div class="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1567654854594-609e3b14b23e?w=1920&q=80'); background-size: cover; background-position: center;"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span class="gradient-text">台湾プロ野球</span>
+                </h1>
+                <h2 class="hero-subtitle">CPBL - Chinese Professional Baseball League</h2>
+                <p class="hero-description">台湾最高峰のプロ野球リーグをリアルタイムで体感しよう</p>
+                
+                <div class="live-game-card">
+                    <h3 class="live-title">今日の注目試合</h3>
+                    <div class="score-display">
+                        <div class="team">
+                            <div class="team-name">統一7-ELEVEn獅</div>
+                            <div class="score">4</div>
+                        </div>
+                        <div class="game-status">
+                            <div class="inning">9回表</div>
+                            <div class="live-indicator">LIVE</div>
+                        </div>
+                        <div class="team">
+                            <div class="team-name">楽天モンキーズ</div>
+                            <div class="score">2</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="hero-buttons">
+                    <button class="btn btn-primary">ライブ観戦</button>
+                    <button class="btn btn-secondary">スケジュール</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- スコアティッカー -->
+    <section id="score-ticker" class="score-ticker">
+        <div class="container">
+            <div class="ticker-header">
+                <span class="ticker-label">ライブスコア</span>
+            </div>
+            <div class="ticker-content">
+                <div class="ticker-slides" id="tickerSlides">
+                    <div class="ticker-slide">
+                        <div class="game-summary">
+                            <span class="teams">統一7-ELEVEn獅 vs 楽天モンキーズ</span>
+                            <span class="score-summary">4-2</span>
+                            <span class="status live">9回表 LIVE</span>
+                        </div>
+                    </div>
+                    <div class="ticker-slide">
+                        <div class="game-summary">
+                            <span class="teams">中信兄弟 vs フォルモサ夢想家</span>
+                            <span class="score-summary">7-5</span>
+                            <span class="status final">最終</span>
+                        </div>
+                    </div>
+                    <div class="ticker-slide">
+                        <div class="game-summary">
+                            <span class="teams">富邦ガーディアンズ vs TSGホークス</span>
+                            <span class="score-summary">0-0</span>
+                            <span class="status scheduled">19:00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ゲームセンター -->
+    <section id="game-center" class="game-center">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">ゲームセンター</h2>
+                <p class="section-description">リアルタイムで試合状況を追跡し、詳細な統計とライブアップデートを確認</p>
+            </div>
+
+            <div class="game-tabs">
+                <button class="tab-btn active" data-tab="live">ライブ <span class="tab-count">2</span></button>
+                <button class="tab-btn" data-tab="schedule">今後の試合 <span class="tab-count">5</span></button>
+                <button class="tab-btn" data-tab="results">結果 <span class="tab-count">8</span></button>
+            </div>
+
+            <div class="tab-content">
+                <div id="live-tab" class="tab-panel active">
+                    <div class="live-game-detail">
+                        <div class="game-info-card">
+                            <h3 class="card-title">
+                                <span class="live-dot"></span>
+                                ライブゲーム詳細
+                            </h3>
+                            <div class="detailed-score">
+                                <div class="team-detail">
+                                    <div class="team-label">アウェイ</div>
+                                    <div class="team-name">楽天モンキーズ</div>
+                                    <div class="team-score">2</div>
+                                </div>
+                                <div class="game-situation">
+                                    <div class="inning-info">9回表</div>
+                                    <div class="live-status">LIVE</div>
+                                    <div class="outs">2アウト</div>
+                                </div>
+                                <div class="team-detail">
+                                    <div class="team-label">ホーム</div>
+                                    <div class="team-name">統一7-ELEVEn獅</div>
+                                    <div class="team-score">4</div>
+                                </div>
+                            </div>
+                            <div class="current-situation">
+                                <div class="situation-title">現在の状況</div>
+                                <div class="situation-details">
+                                    <div><strong>投手:</strong> 王維中 (7回投球, 4奪三振)</div>
+                                    <div><strong>打者:</strong> 林安可 (.285打率)</div>
+                                    <div><strong>走者:</strong> 1塁, 3塁</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="inning-chart-card">
+                            <h3 class="card-title">イニングチャート</h3>
+                            <div class="inning-chart">
+                                <table class="score-table">
+                                    <thead>
+                                        <tr>
+                                            <th>チーム</th>
+                                            <th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th>
+                                            <th class="runs-col">R</th><th>H</th><th>E</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="team-name">楽天モンキーズ</td>
+                                            <td>0</td><td>0</td><td>1</td><td>0</td><td>1</td><td>0</td><td>0</td><td>0</td><td>-</td>
+                                            <td class="runs-col"><strong>2</strong></td><td>8</td><td>0</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="team-name">統一7-ELEVEn獅</td>
+                                            <td>1</td><td>0</td><td>2</td><td>0</td><td>0</td><td>1</td><td>0</td><td>0</td><td>-</td>
+                                            <td class="runs-col"><strong>4</strong></td><td>10</td><td>1</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="schedule-tab" class="tab-panel">
+                    <div class="games-table">
+                        <div class="game-row">
+                            <span class="game-time">19:00</span>
+                            <span class="game-teams">富邦ガーディアンズ vs TSGホークス</span>
+                            <span class="game-venue">桃園球場</span>
+                            <span class="game-status scheduled">今日</span>
+                        </div>
+                        <div class="game-row">
+                            <span class="game-time">18:30</span>
+                            <span class="game-teams">統一7-ELEVEn獅 vs 楽天モンキーズ</span>
+                            <span class="game-venue">桃園球場</span>
+                            <span class="game-status scheduled">明日</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="results-tab" class="tab-panel">
+                    <div class="games-table">
+                        <div class="game-row">
+                            <span class="game-time">19:00</span>
+                            <span class="game-teams">中信兄弟 7-5 フォルモサ夢想家</span>
+                            <span class="game-venue">台中洲際球場</span>
+                            <span class="game-status final">最終</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- チーム一覧 -->
+    <section id="teams" class="teams-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">CPBLチーム</h2>
+                <p class="section-description">台湾プロ野球リーグの6チームをご紹介</p>
+            </div>
+
+            <div class="teams-grid" id="teamsGrid">
+                <!-- チームカードはJSで動的生成 -->
+            </div>
+
+            <div class="section-footer">
+                <button class="btn btn-outline">全チーム詳細を見る</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 統計情報 -->
+    <section id="stats" class="stats-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">リーグ統計</h2>
+                <p class="section-description">2024シーズンの主要部門リーダー</p>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card home-runs">
+                    <div class="stat-header">
+                        <span class="stat-icon">⚾</span>
+                        <div class="stat-value">28</div>
+                    </div>
+                    <h3 class="stat-title">本塁打王</h3>
+                    <div class="stat-player">高國麟</div>
+                    <div class="stat-team">統一7-ELEVEn獅</div>
+                </div>
+
+                <div class="stat-card batting-avg">
+                    <div class="stat-header">
+                        <span class="stat-icon">🏏</span>
+                        <div class="stat-value">.342</div>
+                    </div>
+                    <h3 class="stat-title">首位打者</h3>
+                    <div class="stat-player">林安可</div>
+                    <div class="stat-team">統一7-ELEVEn獅</div>
+                </div>
+
+                <div class="stat-card era">
+                    <div class="stat-header">
+                        <span class="stat-icon">🥎</span>
+                        <div class="stat-value">2.15</div>
+                    </div>
+                    <h3 class="stat-title">防御率1位</h3>
+                    <div class="stat-player">王維中</div>
+                    <div class="stat-team">楽天モンキーズ</div>
+                </div>
+
+                <div class="stat-card rbi">
+                    <div class="stat-header">
+                        <span class="stat-icon">💪</span>
+                        <div class="stat-value">89</div>
+                    </div>
+                    <h3 class="stat-title">打点王</h3>
+                    <div class="stat-player">林智勝</div>
+                    <div class="stat-team">中信兄弟</div>
+                </div>
+            </div>
+
+            <div class="section-footer">
+                <button class="btn btn-outline">全統計を見る</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 台湾球場マップ -->
+    <section id="stadium-map" class="stadium-map-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">台湾球場マップ</h2>
+                <p class="section-description">CPBLの各球場の場所と今週の試合予定</p>
+            </div>
+
+            <div class="map-container">
+                <div class="taiwan-map">
+                    <svg viewBox="0 0 400 600" class="map-svg">
+                        <!-- 台湾の簡略地図 -->
+                        <path d="M150 50 L300 80 L320 200 L310 350 L280 480 L250 520 L200 550 L150 540 L120 500 L100 400 L90 300 L110 200 L130 100 Z" 
+                              fill="#e8f5e8" stroke="#4ade80" stroke-width="2"/>
+                        
+                        <!-- 球場マーカー -->
+                        <g class="stadium-marker" data-stadium="taipei">
+                            <circle cx="200" cy="150" r="8" fill="#ef4444" class="stadium-dot live"/>
+                            <circle cx="200" cy="150" r="12" fill="none" stroke="#ef4444" stroke-width="2" class="pulse"/>
+                            <text x="200" y="135" text-anchor="middle" class="stadium-label">台北</text>
+                        </g>
+                        
+                        <g class="stadium-marker" data-stadium="taoyuan">
+                            <circle cx="180" cy="180" r="8" fill="#ef4444" class="stadium-dot live"/>
+                            <circle cx="180" cy="180" r="12" fill="none" stroke="#ef4444" stroke-width="2" class="pulse"/>
+                            <text x="180" y="165" text-anchor="middle" class="stadium-label">桃園</text>
+                        </g>
+                        
+                        <g class="stadium-marker" data-stadium="taichung">
+                            <circle cx="170" cy="280" r="8" fill="#6b7280" class="stadium-dot"/>
+                            <text x="170" y="265" text-anchor="middle" class="stadium-label">台中</text>
+                        </g>
+                        
+                        <g class="stadium-marker" data-stadium="tainan">
+                            <circle cx="160" cy="420" r="8" fill="#ef4444" class="stadium-dot live"/>
+                            <circle cx="160" cy="420" r="12" fill="none" stroke="#ef4444" stroke-width="2" class="pulse"/>
+                            <text x="160" y="405" text-anchor="middle" class="stadium-label">台南</text>
+                        </g>
+                    </svg>
+                    
+                    <div class="map-legend">
+                        <div class="legend-item">
+                            <div class="legend-dot live"></div>
+                            <span>今週試合あり</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-dot"></div>
+                            <span>試合なし</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stadium-list">
+                    <h3 class="list-title">球場一覧</h3>
+                    <div class="stadium-items" id="stadiumList">
+                        <!-- 球場リストはJSで生成 -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- メディア・ギャラリー -->
+    <section id="media" class="media-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">メディア & ギャラリー</h2>
+                <p class="section-description">ライブ配信、ハイライト動画、フォトギャラリー</p>
+            </div>
+
+            <div class="media-tabs">
+                <button class="media-tab-btn active" data-media-tab="live">📺 ライブ配信</button>
+                <button class="media-tab-btn" data-media-tab="highlights">🎬 ハイライト</button>
+                <button class="media-tab-btn" data-media-tab="gallery">📸 ギャラリー</button>
+            </div>
+
+            <div class="media-content">
+                <div id="live-media" class="media-panel active">
+                    <div class="live-streams">
+                        <div class="stream-item">
+                            <div class="stream-info">
+                                <h4 class="stream-title">統一7-ELEVEn獅 vs 楽天モンキーズ</h4>
+                                <div class="stream-meta">
+                                    <span class="stream-status live">ライブ中</span>
+                                    <span class="viewer-count">👥 12,480人視聴中</span>
+                                    <span class="platform">📺 CPBL TV</span>
+                                </div>
+                            </div>
+                            <button class="btn btn-live">視聴する</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="highlights-media" class="media-panel">
+                    <div class="highlights-grid">
+                        <div class="highlight-item">
+                            <div class="highlight-thumbnail" style="background-image: url('https://images.unsplash.com/photo-1536122522160-72e3eb09863e?w=400&q=80'); background-size: cover;"></div>
+                            <h4 class="highlight-title">高國麟の逆転満塁ホームラン！</h4>
+                            <div class="highlight-meta">⏱️ 2:15 👁️ 45,623</div>
+                        </div>
+                        <div class="highlight-item">
+                            <div class="highlight-thumbnail" style="background-image: url('https://images.unsplash.com/photo-1566479117151-c10615f43073?w=400&q=80'); background-size: cover;"></div>
+                            <h4 class="highlight-title">王維中の完封勝利ハイライト</h4>
+                            <div class="highlight-meta">⏱️ 3:42 👁️ 32,891</div>
+                        </div>
+                        <div class="highlight-item">
+                            <div class="highlight-thumbnail" style="background-image: url('https://images.unsplash.com/photo-1590502593747-42a996133562?w=400&q=80'); background-size: cover;"></div>
+                            <h4 class="highlight-title">林安可の華麗なダイビングキャッチ</h4>
+                            <div class="highlight-meta">⏱️ 1:28 👁️ 28,754</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="gallery-media" class="media-panel">
+                    <div class="photo-gallery" id="photoGallery">
+                        <!-- フォトギャラリーはJSで生成 -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA セクション -->
+    <section id="cta" class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">
+                    台湾野球の魅力を<br>
+                    <span class="gradient-text">体感しよう</span>
+                </h2>
+                <p class="cta-description">ライブ観戦からアプリダウンロードまで、CPBLを楽しむすべてがここに</p>
+
+                <div class="cta-cards">
+                    <div class="cta-card">
+                        <div class="cta-icon">🎟️</div>
+                        <h3 class="cta-card-title">チケット購入</h3>
+                        <p class="cta-card-text">お気に入りのチームを球場で応援しよう</p>
+                        <button class="btn btn-cta-primary">チケットを購入</button>
+                    </div>
+                    <div class="cta-card">
+                        <div class="cta-icon">📱</div>
+                        <h3 class="cta-card-title">公式アプリ</h3>
+                        <p class="cta-card-text">ライブスコア、動画、統計をアプリで</p>
+                        <button class="btn btn-cta-secondary">アプリダウンロード</button>
+                    </div>
+                </div>
+
+                <div class="cta-actions">
+                    <button class="btn btn-cta-main">今すぐ観戦予約</button>
+                    <div class="social-follow">
+                        <span class="follow-text">フォローする:</span>
+                        <div class="social-icons">
+                            <a href="#" class="social-icon">📘</a>
+                            <a href="#" class="social-icon">📸</a>
+                            <a href="#" class="social-icon">🐦</a>
+                            <a href="#" class="social-icon">📺</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cta-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">120+</div>
+                        <div class="stat-label">試合/年</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">6</div>
+                        <div class="stat-label">プロチーム</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">500K+</div>
+                        <div class="stat-label">年間観客数</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">35年</div>
+                        <div class="stat-label">リーグ歴史</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- フッター -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3 class="footer-title gradient-text">台湾プロ野球</h3>
+                    <p class="footer-subtitle">CPBL - Chinese Professional Baseball League</p>
+                    <p class="footer-description">台湾最高峰のプロ野球リーグ。熱戦と感動をお届けします。</p>
+                    <div class="footer-social">
+                        <a href="#" class="social-link">📘</a>
+                        <a href="#" class="social-link">📸</a>
+                        <a href="#" class="social-link">🐦</a>
+                        <a href="#" class="social-link">📺</a>
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <div class="link-group">
+                        <h4 class="link-title">リーグ情報</h4>
+                        <ul class="link-list">
+                            <li><a href="#">CPBL概要</a></li>
+                            <li><a href="#">チーム一覧</a></li>
+                            <li><a href="#">試合スケジュール</a></li>
+                            <li><a href="#">順位表</a></li>
+                        </ul>
+                    </div>
+                    <div class="link-group">
+                        <h4 class="link-title">選手・統計</h4>
+                        <ul class="link-list">
+                            <li><a href="#">個人成績</a></li>
+                            <li><a href="#">チーム成績</a></li>
+                            <li><a href="#">記録・歴史</a></li>
+                            <li><a href="#">MVP・表彰</a></li>
+                        </ul>
+                    </div>
+                    <div class="link-group">
+                        <h4 class="link-title">メディア</h4>
+                        <ul class="link-list">
+                            <li><a href="#">ライブ配信</a></li>
+                            <li><a href="#">ハイライト</a></li>
+                            <li><a href="#">ニュース</a></li>
+                            <li><a href="#">フォトギャラリー</a></li>
+                        </ul>
+                    </div>
+                    <div class="link-group">
+                        <h4 class="link-title">ファンサービス</h4>
+                        <ul class="link-list">
+                            <li><a href="#">チケット購入</a></li>
+                            <li><a href="#">公式アプリ</a></li>
+                            <li><a href="#">グッズショップ</a></li>
+                            <li><a href="#">ファンクラブ</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-copyright">
+                    <p>&copy; 2024 Chinese Professional Baseball League. All rights reserved.</p>
+                </div>
+                <div class="footer-legal">
+                    <a href="#">プライバシーポリシー</a>
+                    <a href="#">利用規約</a>
+                    <a href="#">お問い合わせ</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

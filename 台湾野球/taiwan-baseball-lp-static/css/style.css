@@ -1,0 +1,1191 @@
+/* 台湾プロ野球 CPBL スタイルシート */
+
+/* リセットと基本設定 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noto Sans JP', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f8f9fa;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ヒーローセクション */
+.hero {
+    position: relative;
+    height: 100vh;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.7;
+}
+
+.hero-bg::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(22, 78, 99, 0.9) 0%, rgba(147, 51, 234, 0.7) 100%);
+}
+
+.hero-content {
+    text-align: center;
+    color: white;
+    z-index: 1;
+}
+
+.hero-title {
+    font-size: 4rem;
+    font-weight: 900;
+    margin-bottom: 1rem;
+}
+
+.gradient-text {
+    background: linear-gradient(135deg, #3b82f6 0%, #ec4899 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    font-weight: 300;
+    margin-bottom: 1rem;
+}
+
+.hero-description {
+    font-size: 1.2rem;
+    margin-bottom: 3rem;
+}
+
+/* ライブゲームカード */
+.live-game-card {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 2rem;
+    margin: 2rem auto;
+    max-width: 600px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.live-title {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.score-display {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.team {
+    text-align: center;
+}
+
+.team-name {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.score {
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.game-status {
+    text-align: center;
+}
+
+.inning {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.live-indicator {
+    background: #ef4444;
+    color: white;
+    padding: 0.25rem 1rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(239, 68, 68, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(239, 68, 68, 0);
+    }
+}
+
+/* ボタン */
+.btn {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    font-weight: 500;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    color: white;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+}
+
+.btn-secondary:hover {
+    background: white;
+    color: #2563eb;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+/* スコアティッカー */
+.score-ticker {
+    background: #1e293b;
+    color: white;
+    padding: 1rem 0;
+}
+
+.ticker-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.ticker-label {
+    background: #ef4444;
+    padding: 0.25rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.ticker-content {
+    overflow: hidden;
+}
+
+.ticker-slides {
+    display: flex;
+    animation: ticker 20s linear infinite;
+}
+
+.ticker-slide {
+    flex-shrink: 0;
+    padding-right: 3rem;
+}
+
+.game-summary {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.teams {
+    font-size: 0.9rem;
+}
+
+.score-summary {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.status {
+    padding: 0.25rem 0.75rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.status.live {
+    background: #ef4444;
+}
+
+.status.final {
+    background: #6b7280;
+}
+
+.status.scheduled {
+    background: #3b82f6;
+}
+
+@keyframes ticker {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+/* セクション共通 */
+.section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.section-description {
+    font-size: 1.1rem;
+    color: #6b7280;
+}
+
+/* ゲームセンター */
+.game-center {
+    padding: 4rem 0;
+    background: white;
+}
+
+.game-tabs {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    justify-content: center;
+}
+
+.tab-btn {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    background: #f3f4f6;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.tab-btn.active {
+    background: #2563eb;
+    color: white;
+}
+
+.tab-count {
+    background: rgba(255, 255, 255, 0.3);
+    padding: 0.1rem 0.5rem;
+    border-radius: 10px;
+    font-size: 0.8rem;
+    margin-left: 0.5rem;
+}
+
+.tab-panel {
+    display: none;
+}
+
+.tab-panel.active {
+    display: block;
+}
+
+/* ライブゲーム詳細 */
+.live-game-detail {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.game-info-card {
+    background: #f8f9fa;
+    padding: 2rem;
+    border-radius: 15px;
+}
+
+.card-title {
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.live-dot {
+    width: 10px;
+    height: 10px;
+    background: #ef4444;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+}
+
+.detailed-score {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.team-detail {
+    text-align: center;
+}
+
+.team-label {
+    font-size: 0.8rem;
+    color: #6b7280;
+    margin-bottom: 0.5rem;
+}
+
+.team-score {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #1e293b;
+}
+
+.game-situation {
+    text-align: center;
+}
+
+.inning-info {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.outs {
+    font-size: 0.9rem;
+    color: #6b7280;
+}
+
+.situation-title {
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.situation-details > div {
+    margin-bottom: 0.5rem;
+}
+
+/* イニングチャート */
+.inning-chart-card {
+    background: #f8f9fa;
+    padding: 2rem;
+    border-radius: 15px;
+}
+
+.score-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.score-table th,
+.score-table td {
+    padding: 0.5rem;
+    text-align: center;
+    border: 1px solid #e5e7eb;
+}
+
+.score-table th {
+    background: #f3f4f6;
+    font-weight: 600;
+}
+
+.score-table td.team-name {
+    text-align: left;
+    font-weight: 500;
+}
+
+.runs-col {
+    background: #fef3c7;
+}
+
+/* チームセクション */
+.teams-section {
+    padding: 4rem 0;
+    background: #f8f9fa;
+}
+
+.teams-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.team-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.team-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.team-logo {
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+}
+
+.team-info {
+    padding: 1.5rem;
+}
+
+.team-info h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+}
+
+.team-stats {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #e5e7eb;
+}
+
+.stat {
+    text-align: center;
+    flex: 1;
+}
+
+.stat-value {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #2563eb;
+}
+
+.stat-label {
+    font-size: 0.8rem;
+    color: #6b7280;
+}
+
+/* 統計セクション */
+.stats-section {
+    padding: 4rem 0;
+    background: white;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.stat-card {
+    background: linear-gradient(135deg, #f3f4f6 0%, #ffffff 100%);
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    border: 1px solid #e5e7eb;
+}
+
+.stat-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.stat-icon {
+    font-size: 2rem;
+}
+
+.stat-value {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.stat-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.stat-player {
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+}
+
+.stat-team {
+    font-size: 0.9rem;
+    color: #6b7280;
+}
+
+/* 球場マップ */
+.stadium-map-section {
+    padding: 4rem 0;
+    background: #f8f9fa;
+}
+
+.map-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+}
+
+.taiwan-map {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.map-svg {
+    width: 100%;
+    height: auto;
+}
+
+.stadium-marker {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.stadium-marker:hover .stadium-dot {
+    transform: scale(1.2);
+}
+
+.stadium-dot {
+    transition: transform 0.3s ease;
+}
+
+.stadium-dot.live {
+    fill: #ef4444;
+}
+
+.pulse {
+    animation: pulse-ring 2s infinite;
+}
+
+@keyframes pulse-ring {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(1.5);
+    }
+}
+
+.stadium-label {
+    font-size: 12px;
+    fill: #1e293b;
+}
+
+.map-legend {
+    display: flex;
+    gap: 2rem;
+    margin-top: 2rem;
+    justify-content: center;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.legend-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #6b7280;
+}
+
+.legend-dot.live {
+    background: #ef4444;
+}
+
+.stadium-list {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.list-title {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.stadium-item {
+    padding: 1rem;
+    border-bottom: 1px solid #e5e7eb;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.stadium-item:last-child {
+    border-bottom: none;
+}
+
+.stadium-name {
+    font-weight: 500;
+}
+
+.stadium-capacity {
+    color: #6b7280;
+    font-size: 0.9rem;
+}
+
+.stadium-status {
+    padding: 0.25rem 0.75rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    background: #f3f4f6;
+}
+
+.stadium-status.active {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+/* メディアセクション */
+.media-section {
+    padding: 4rem 0;
+    background: white;
+}
+
+.media-tabs {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    justify-content: center;
+}
+
+.media-tab-btn {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    background: #f3f4f6;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.media-tab-btn.active {
+    background: #2563eb;
+    color: white;
+}
+
+.media-panel {
+    display: none;
+}
+
+.media-panel.active {
+    display: block;
+}
+
+/* ライブストリーム */
+.live-streams {
+    display: grid;
+    gap: 1rem;
+}
+
+.stream-item {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.stream-title {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.stream-meta {
+    display: flex;
+    gap: 1rem;
+    font-size: 0.9rem;
+    color: #6b7280;
+}
+
+.stream-status.live {
+    color: #ef4444;
+    font-weight: 500;
+}
+
+.btn-live {
+    background: #ef4444;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn-live:hover {
+    background: #dc2626;
+}
+
+/* ハイライト */
+.highlights-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.highlight-item {
+    background: #f8f9fa;
+    border-radius: 15px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.highlight-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.highlight-thumbnail {
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    background: linear-gradient(135deg, #e5e7eb 0%, #f3f4f6 100%);
+}
+
+.highlight-title {
+    padding: 1rem;
+    font-size: 1.1rem;
+}
+
+.highlight-meta {
+    padding: 0 1rem 1rem;
+    color: #6b7280;
+    font-size: 0.9rem;
+}
+
+/* フォトギャラリー */
+.photo-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.gallery-item {
+    aspect-ratio: 1;
+    background: #f3f4f6;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: scale(1.05);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* CTAセクション */
+.cta-section {
+    padding: 6rem 0;
+    background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+    color: white;
+}
+
+.cta-content {
+    text-align: center;
+}
+
+.cta-title {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.cta-description {
+    font-size: 1.2rem;
+    margin-bottom: 3rem;
+    color: #cbd5e1;
+}
+
+.cta-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 800px;
+    margin: 0 auto 3rem;
+}
+
+.cta-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 2rem;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.cta-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.cta-card-title {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.cta-card-text {
+    color: #cbd5e1;
+    margin-bottom: 1.5rem;
+}
+
+.btn-cta-primary {
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    color: white;
+    width: 100%;
+}
+
+.btn-cta-secondary {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+    width: 100%;
+}
+
+.cta-actions {
+    margin-bottom: 3rem;
+}
+
+.btn-cta-main {
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+    color: white;
+    padding: 1rem 3rem;
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.social-follow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.follow-text {
+    color: #cbd5e1;
+}
+
+.social-icons {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-icon {
+    display: inline-block;
+    font-size: 1.5rem;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+}
+
+.social-icon:hover {
+    transform: scale(1.2);
+}
+
+.cta-stats {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+}
+
+.cta-stats .stat-item {
+    text-align: center;
+}
+
+.cta-stats .stat-number {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 0.25rem;
+}
+
+.cta-stats .stat-label {
+    color: #cbd5e1;
+    font-size: 0.9rem;
+}
+
+/* フッター */
+.footer {
+    background: #0f172a;
+    color: white;
+    padding: 3rem 0 1rem;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    gap: 3rem;
+    margin-bottom: 2rem;
+}
+
+.footer-brand {
+    max-width: 300px;
+}
+
+.footer-title {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.footer-subtitle {
+    color: #94a3b8;
+    margin-bottom: 1rem;
+}
+
+.footer-description {
+    color: #64748b;
+    margin-bottom: 1.5rem;
+}
+
+.footer-social {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-link {
+    display: inline-block;
+    font-size: 1.2rem;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+}
+
+.social-link:hover {
+    transform: scale(1.2);
+}
+
+.footer-links {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+}
+
+.link-group h4 {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+.link-list {
+    list-style: none;
+}
+
+.link-list li {
+    margin-bottom: 0.5rem;
+}
+
+.link-list a {
+    color: #94a3b8;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.link-list a:hover {
+    color: white;
+}
+
+.footer-bottom {
+    padding-top: 2rem;
+    border-top: 1px solid #1e293b;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-copyright {
+    color: #64748b;
+}
+
+.footer-legal {
+    display: flex;
+    gap: 2rem;
+}
+
+.footer-legal a {
+    color: #94a3b8;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-legal a:hover {
+    color: white;
+}
+
+/* レスポンシブ */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .score-display {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+    
+    .btn {
+        width: 100%;
+    }
+    
+    .live-game-detail {
+        grid-template-columns: 1fr;
+    }
+    
+    .map-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-links {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .footer-bottom {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+}
+
+.section-footer {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.btn-outline {
+    background: transparent;
+    color: #2563eb;
+    border: 2px solid #2563eb;
+    padding: 0.75rem 2rem;
+    border-radius: 50px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+    background: #2563eb;
+    color: white;
+}
+
+/* ゲームテーブル */
+.games-table {
+    display: grid;
+    gap: 1rem;
+}
+
+.game-row {
+    background: #f8f9fa;
+    padding: 1rem;
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: auto 1fr auto auto;
+    gap: 1rem;
+    align-items: center;
+}
+
+.game-time {
+    font-weight: 600;
+    color: #6b7280;
+}
+
+.game-teams {
+    font-weight: 500;
+}
+
+.game-venue {
+    color: #6b7280;
+    font-size: 0.9rem;
+}
+
+.game-status {
+    padding: 0.25rem 0.75rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.game-status.scheduled {
+    background: #dbeafe;
+    color: #1e40af;
+}
+
+.game-status.final {
+    background: #e5e7eb;
+    color: #374151;
+}
